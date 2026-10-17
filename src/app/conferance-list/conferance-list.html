@@ -1,22 +1,50 @@
-<h1>Conferences</h1>
+<div class="conferences-page">
+  <div class="page-header">
+    <span class="page-tag">Events & Summits</span>
+    <h1>Upcoming Tech Conferences</h1>
+    <p>Discover premier technical conferences, connect with industry leaders, and expand your skills.</p>
+  </div>
 
-<div class="cards-container">
-  @for (conf of conferances; track $index) {
-    <div class="card">
+  <div class="cards-container">
+    @for (conf of conferances; track conf.id) {
+      <div class="card">
+        <div class="card-media">
+          <img
+            [src]="conf.image || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87'"
+            [alt]="conf.name"
+            loading="lazy"
+          />
+          @if (conf.category) {
+            <span class="category-badge">{{ conf.category }}</span>
+          }
+        </div>
 
-      <img
-        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87"
-        alt="Conference"
-      />
+        <div class="card-content">
+          <h2>{{ conf.name }}</h2>
 
-      <div class="card-content">
-        <h2>{{ conf.name }}</h2>
+          @if (conf.description) {
+            <p class="description">{{ conf.description }}</p>
+          }
 
-        <p>📅 {{ conf.date }}</p>
-        <p>📍 {{ conf.place }}</p>
+          <div class="meta-row">
+            <span class="meta-item">
+              <span class="meta-icon">📅</span>
+              <span>{{ conf.date }}</span>
+            </span>
+            <span class="meta-item">
+              <span class="meta-icon">📍</span>
+              <span>{{ conf.place }}</span>
+            </span>
+          </div>
 
+          <div class="card-footer">
+            <button class="btn-details" [routerLink]="['/details', conf.id]">
+              <span>View Details</span>
+              <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
       </div>
-      <button [routerLink]="['/details', conf.id]">Details</button>
-    </div>
-  }
+    }
+  </div>
 </div>

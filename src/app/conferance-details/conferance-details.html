@@ -1,29 +1,72 @@
-{{id()}}
-<div class="card">
-  <div class="card-header">
-    <span class="badge">CONFERENCE</span>
-    <h1>{{ conference.name }}</h1>
+<div class="details-container">
+  <div class="navigation-bar">
+    <button (click)="goBack()" class="back-btn">
+      <span class="arrow">←</span>
+      <span>Back to conferences</span>
+    </button>
   </div>
 
-  <div class="card-body">
-    <div class="info">
-      <span class="icon">📅</span>
-      <div>
-        <span class="label">Date</span>
-        <p>{{ conference.date }}</p>
+  @if (conference) {
+    <div class="details-card">
+      <div class="media-banner">
+        <img
+          [src]="conference.image || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87'"
+          [alt]="conference.name"
+        />
+        <div class="banner-overlay">
+          <div class="banner-badges">
+            <span class="badge badge-conf">CONFERENCE #{{ id() }}</span>
+            @if (conference.category) {
+              <span class="badge badge-category">{{ conference.category }}</span>
+            }
+          </div>
+          <h1>{{ conference.name }}</h1>
+        </div>
+      </div>
+
+      <div class="card-body">
+        @if (conference.description) {
+          <div class="about-section">
+            <h3>About the Event</h3>
+            <p>{{ conference.description }}</p>
+          </div>
+        }
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">📅</div>
+            <div class="info-details">
+              <span class="label">Date</span>
+              <p class="value">{{ conference.date }}</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div class="info-details">
+              <span class="label">Location</span>
+              <p class="value">{{ conference.place }}</p>
+            </div>
+          </div>
+
+          @if (conference.capacity) {
+            <div class="info-card">
+              <div class="info-icon">👥</div>
+              <div class="info-details">
+                <span class="label">Capacity</span>
+                <p class="value">{{ conference.capacity }} Attendees</p>
+              </div>
+            </div>
+          }
+        </div>
       </div>
     </div>
-
-    <div class="info">
-      <span class="icon">📍</span>
-      <div>
-        <span class="label">Place</span>
-        <p>{{ conference.place }}</p>
-      </div>
+  } @else {
+    <div class="not-found-card">
+      <div class="not-found-icon">🔍</div>
+      <h2>Conference Not Found</h2>
+      <p>No conference found matching ID #{{ id() }}.</p>
+      <button (click)="goBack()" class="back-btn">Return to List</button>
     </div>
-
-    <a (click)="goBack()" class="back-link">
-      ← Back to conferences
-    </a>
-  </div>
+  }
 </div>
