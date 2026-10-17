@@ -1,26 +1,153 @@
-<p>welcome 4ssa5</p>
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-tag">Class 4SSA5 Demo</span>
+      <h1 class="hero-title">Angular Fundamentals & Lab Demonstrations</h1>
+      <p class="hero-subtitle">
+        Interactive showcase demonstrating data binding, Angular signals, two-way model synchronization, and modern control flow.
+      </p>
+    </div>
+  </section>
 
-<h1>interpolation {{username}}</h1>
-<button (click)="onsave()">Eventbinding</button>
-<img [src]="imgurl" style="width: 100px; height: 100px;" />
+  <!-- Lab Grid -->
+  <div class="lab-grid">
+    <!-- Card 1: Data Binding & Inputs -->
+    <div class="lab-card">
+      <div class="card-header">
+        <span class="card-icon">⚡</span>
+        <h3>Data Binding & Events</h3>
+      </div>
+      <div class="card-body">
+        <div class="demo-group">
+          <label>Interpolation:</label>
+          <div class="result-box">
+            Welcome, <strong>{{ username }}</strong>!
+          </div>
+        </div>
 
-<input type="text" [(ngModel)]="nom" /> {{nom}}
+        <div class="demo-group">
+          <label>Property Binding (Image):</label>
+          <div class="img-preview">
+            <img [src]="imgurl" alt="Angular Logo" class="brand-img" />
+          </div>
+        </div>
 
-<h2>signal : {{count()}}</h2>
-<button (click)="increment()">increment</button>
-<button (click)="inc()">inc simple</button>
-<h2> {{countS}} </h2>
-@if(nom == "4ssa5"){
-    <p>4ssa5 est egal a 4ssa5</p>
-}
-@else{
-    <p>4ssa5 n'est pas egal a 4ssa5</p>
-}
-<h2>students (simple)</h2>
-@for( item of students;track $index){
-    <p> {{item}} </p>
-} 
-<h2>students (objet)</h2>  
-@for( item of students2;track $index){
-    <p> {{item.name}} - {{item.age}} </p>
-} 
+        <div class="demo-group">
+          <label>Event Binding:</label>
+          <button class="btn btn-primary" (click)="onsave()">
+            Trigger onsave() Event
+          </button>
+        </div>
+
+        <div class="demo-group">
+          <label>Two-way Data Binding ([(ngModel)]):</label>
+          <div class="input-row">
+            <input
+              type="text"
+              class="form-input"
+              [(ngModel)]="nom"
+              placeholder="Type something (e.g. 4ssa5)..."
+            />
+            <span class="live-tag">Value: {{ nom }}</span>
+          </div>
+
+          <div class="conditional-box">
+            <span class="cond-label">&#64;if / &#64;else Condition:</span>
+            @if(nom == "4ssa5"){
+              <div class="alert alert-success">
+                <span>✅</span> 4ssa5 est egal a 4ssa5
+              </div>
+            } @else {
+              <div class="alert alert-warning">
+                <span>ℹ️</span> 4ssa5 n'est pas egal a 4ssa5 (valeur actuelle: "{{ nom }}")
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Angular Signals & Reactivity -->
+    <div class="lab-card">
+      <div class="card-header">
+        <span class="card-icon">📡</span>
+        <h3>Signals & State Management</h3>
+      </div>
+      <div class="card-body">
+        <p class="section-desc">Comparing Angular Signals reactivity with traditional component properties.</p>
+
+        <div class="counters-grid">
+          <!-- Signal Counter -->
+          <div class="counter-box signal-box">
+            <span class="counter-title">Signal State</span>
+            <div class="counter-val">{{ count() }}</div>
+            <button class="btn btn-signal" (click)="increment()">
+              + increment() (Signal)
+            </button>
+          </div>
+
+          <!-- Standard Counter -->
+          <div class="counter-box standard-box">
+            <span class="counter-title">Standard Property</span>
+            <div class="counter-val">{{ countS }}</div>
+            <button class="btn btn-secondary" (click)="inc()">
+              + inc() (Simple)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Control Flow Directives (@for) -->
+    <div class="lab-card full-width">
+      <div class="card-header">
+        <span class="card-icon">📋</span>
+        <h3>Control Flow Loops (&#64;for)</h3>
+      </div>
+      <div class="card-body">
+        <div class="lists-wrapper">
+          <!-- Simple Array -->
+          <div class="list-column">
+            <h4>Students (Simple Array)</h4>
+            <div class="pills-container">
+              @for( item of students; track $index){
+                <div class="student-pill">
+                  <span class="avatar-circle">{{ item.charAt(0).toUpperCase() }}</span>
+                  <span class="pill-name">{{ item }}</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Objects Array -->
+          <div class="list-column">
+            <h4>Students (Object Array)</h4>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for( item of students2; track $index){
+                    <tr>
+                      <td>{{ $index + 1 }}</td>
+                      <td class="font-medium">{{ item.name }}</td>
+                      <td>{{ item.age }} years</td>
+                      <td><span class="status-badge">Student</span></td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
