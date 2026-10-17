@@ -1,59 +1,62 @@
-# Ssa5
+# 4SSA5 - Conference Portal & Angular Lab
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
+A modern, responsive Angular application developed for the **4SSA5 Web Development** course. This project showcases modern Angular 21 features, reactive state with Signals, two-way data binding, dynamic routing with component input binding, and responsive UI components.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🌟 Key Features & Demonstrations
 
+### 1. Interactive Angular Fundamentals Lab (`/home`)
+- **Data Binding Showcase**: Interpolation, property binding (`[src]`), and event binding (`(click)`).
+- **Two-way Data Binding**: Synchronized inputs with `[(ngModel)]` and live condition testing.
+- **Signals vs Component State**: Live comparison between Angular Signals (`signal()`, `.update()`) and classic class properties.
+- **Modern Control Flow**: `@if` / `@else` conditions and `@for` track loops for primitive and structured object collections.
+
+### 2. Conferences Portal (`/list`)
+- Dynamic event catalog featuring technical summits and conferences.
+- Card grid with category badges, high-resolution media, dates, locations, and interactive transitions.
+- Fully typed data source via Angular Injectable service (`Conferance`).
+
+### 3. Dynamic Conference Details (`/details/:id`)
+- Route parameter retrieval via Angular's `withComponentInputBinding()` (`input.required<string>()`).
+- Event banner overlay with category tags, capacity, and detailed descriptions.
+- Graceful fallback for non-existent conferences with a return-to-list action.
+
+### 4. Custom 404 Not Found (`/**`)
+- Styled error page with helpful navigation fallbacks back to Home and Conference listings.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm (v10+)
+
+### Installation
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Development Server
+Run the local dev server:
 ```bash
-ng generate component component-name
+npm start
 ```
+Navigate to `http://localhost:4200/` in your browser. The application will automatically reload if you change any source files.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### Build
+To build the application bundle for production:
 ```bash
-ng generate --help
+npm run build
 ```
+Build artifacts will be stored in the `dist/ssa5` directory.
 
-## Building
+---
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🛠️ Technology Stack
+- **Framework**: Angular 21
+- **Language**: TypeScript 5.9
+- **Reactivity**: Angular Signals & RxJS
+- **Router**: Angular Router with Component Input Binding
+- **Test Runner**: Vitest & JSDOM
