@@ -1,2 +1,19 @@
-<a routerLink="/home">Home</a>
-<a routerLink="/list">List Conferances</a>
+<header class="navbar">
+  <div class="nav-container">
+    <a routerLink="/home" class="brand">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-text">4SSA5 <span class="brand-sub">Portal</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-item">
+        <span class="nav-icon">🏠</span>
+        <span>Home</span>
+      </a>
+      <a routerLink="/list" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📅</span>
+        <span>Conferences</span>
+      </a>
+    </nav>
+  </div>
+</header>
