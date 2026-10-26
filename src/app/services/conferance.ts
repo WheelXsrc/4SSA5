@@ -17,7 +17,7 @@ export interface ConferenceItem {
   providedIn: 'root',
 })
 export class Conferance {
-  private apiUrl = 'http://localhost:3000/conferances';
+  private apiUrl = '/conferances';
 
   private http = inject(HttpClient);
 
@@ -27,5 +27,17 @@ export class Conferance {
 
   getById(id: number): Observable<ConferenceItem> {
     return this.http.get<ConferenceItem>(`${this.apiUrl}/${id}`);
+  }
+
+  addConferance(conference: Omit<ConferenceItem, 'id'>): Observable<ConferenceItem> {
+    return this.http.post<ConferenceItem>(this.apiUrl, conference);
+  }
+
+  updateConferance(id: number, conference: ConferenceItem): Observable<ConferenceItem> {
+    return this.http.put<ConferenceItem>(`${this.apiUrl}/${id}`, conference);
+  }
+
+  deleteConferance(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
