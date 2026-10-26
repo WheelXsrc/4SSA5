@@ -5,6 +5,17 @@
     <p>Discover premier technical conferences, connect with industry leaders, and expand your skills.</p>
   </div>
 
+  @if (loading) {
+    <div class="state-box">
+      <div class="spinner"></div>
+      <p>Loading conferences...</p>
+    </div>
+  } @else if (error) {
+    <div class="state-box error-box">
+      <span class="state-icon">⚠️</span>
+      <p>{{ error }}</p>
+    </div>
+  } @else {
   <div class="cards-container">
     @for (conf of conferances; track conf.id) {
       <div class="card">
@@ -47,4 +58,5 @@
       </div>
     }
   </div>
+  }
 </div>

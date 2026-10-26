@@ -10,6 +10,8 @@ import { Conferance, ConferenceItem } from '../services/conferance';
 })
 export class ConferanceDetails implements OnInit {
   conference?: ConferenceItem;
+  loading = true;
+  error = '';
   id = input.required<string>();
 
   private conferenceService = inject(Conferance);
@@ -17,7 +19,17 @@ export class ConferanceDetails implements OnInit {
 
   ngOnInit() {
     const numericId = Number(this.id());
-    this.conference = this.conferenceService.getById(numericId);
+    this.conferenceService.getById(numericId).subscribe({
+      next: (data) => {
+        this.conference = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Conference not found or server is unavailable.';
+        this.loading = false;
+        console.error(err);
+      }
+    });
   }
 
   goBack() {

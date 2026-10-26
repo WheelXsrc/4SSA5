@@ -1,0 +1,44 @@
+{
+  "conferances": [
+    {
+      "id": 1,
+      "name": "Angular Conference 2026",
+      "date": "2026-10-15",
+      "place": "Tunis",
+      "category": "Frontend & Web",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80",
+      "description": "Explore the latest innovations in Angular, Signals, Zoneless change detection, and reactive architectures.",
+      "capacity": 250
+    },
+    {
+      "id": 2,
+      "name": "Java & Spring Summit",
+      "date": "2026-10-20",
+      "place": "Sousse",
+      "category": "Backend Architecture",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80",
+      "description": "Deep dive into Spring Boot 3, virtual threads, microservices, and enterprise cloud solutions.",
+      "capacity": 180
+    },
+    {
+      "id": 3,
+      "name": "AI & Data Intelligence Conference",
+      "date": "2026-10-25",
+      "place": "Sfax",
+      "category": "Artificial Intelligence",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80",
+      "description": "Discover breakthroughs in Large Language Models, autonomous agents, computer vision, and neural systems.",
+      "capacity": 300
+    },
+    {
+      "id": 4,
+      "name": "Cloud & DevOps North Africa",
+      "date": "2026-11-05",
+      "place": "Tunis",
+      "category": "DevOps & Cloud",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+      "description": "Best practices in Kubernetes orchestration, CI/CD pipelines, GitOps, and scalable multi-cloud infrastructure.",
+      "capacity": 220
+    }
+  ]
+}

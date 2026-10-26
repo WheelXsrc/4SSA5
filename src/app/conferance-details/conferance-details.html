@@ -6,7 +6,18 @@
     </button>
   </div>
 
-  @if (conference) {
+  @if (loading) {
+    <div class="state-box">
+      <div class="spinner"></div>
+      <p>Loading conference details...</p>
+    </div>
+  } @else if (error) {
+    <div class="state-box error-box">
+      <span class="state-icon">⚠️</span>
+      <p>{{ error }}</p>
+      <button (click)="goBack()" class="back-btn" style="margin-top:1rem">Return to List</button>
+    </div>
+  } @else if (conference) {
     <div class="details-card">
       <div class="media-banner">
         <img
